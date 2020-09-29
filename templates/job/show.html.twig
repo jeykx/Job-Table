@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Job{% endblock %}
+
+{% block body %}
+    <h1>Détail de la candidature</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom du poste</th>
+                <td>{{ job.jobtitle }}</td>
+            </tr>
+            <tr>
+                <th>Nom de l'entreprise</th>
+                <td>{{ job.companytitle }}</td>
+            </tr>
+            <tr>
+                <th>Date de candidature</th>
+                <td>{{ job.dateapplication ? job.dateapplication|date('d/m/Y',"Europe/Paris") : '' }}</td>
+            </tr>
+
+            <tr>
+                <th>Contact de l'entreprise</th>
+                <td>{{ job.contact }}</td>
+            </tr>
+            <tr>
+                <th>Lien de l'annonce</th>
+                <td><a href="{{ job.url }}">{{ job.url }}</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('job_index') }}">Retour à la liste des candidatures</a>
+
+    <a href="{{ path('job_edit', {'id': job.id}) }}">Modifier</a>
+
+    {{ include('job/_delete_form.html.twig') }}
+{% endblock %}

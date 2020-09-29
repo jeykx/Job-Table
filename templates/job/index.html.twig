@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Job index{% endblock %}
+
+{% block body %}
+    <h1>Liste des candidatures</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom du poste</th>
+                <th>Nom de l'entreprise</th>
+                <th>Date de candidature</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for job in jobs %}
+            <tr>
+                <td>{{ job.jobtitle }}</td>
+                <td>{{ job.companytitle }}</td>
+                <td>{{ job.dateapplication ? job.dateapplication|date('d/m/Y',"Europe/Paris") : '' }}</td>
+                <td>
+                    <a href="{{ path('job_show', {'id': job.id}) }}">detail</a>
+                    <a href="{{ path('job_edit', {'id': job.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn-floating btn-large waves-effect waves-light blue" href="{{ path('job_new') }}"><i class="material-icons">add</i></a>
+{% endblock %}
