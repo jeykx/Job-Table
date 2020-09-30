@@ -3,9 +3,9 @@
 {% block title %}Job index{% endblock %}
 
 {% block body %}
-    <h1>Liste des candidatures</h1>
-
-    <table class="table">
+    <h1 class="mt-4 ml-2">Liste des candidatures</h1>
+<div class="container">
+    <table class="table mt-5">
         <thead>
             <tr>
                 <th>Nom du poste</th>
@@ -21,8 +21,8 @@
                 <td>{{ job.companytitle }}</td>
                 <td>{{ job.dateapplication ? job.dateapplication|date('d/m/Y',"Europe/Paris") : '' }}</td>
                 <td>
-                    <a href="{{ path('job_show', {'id': job.id}) }}">detail</a>
-                    <a href="{{ path('job_edit', {'id': job.id}) }}">modifier</a>
+                    <a class="btn btn-danger" href="{{ path('job_show', {'id': job.id}) }}">detail</a>
+                    <a class="btn btn-primary" href="{{ path('job_edit', {'id': job.id}) }}">modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,6 @@
         </tbody>
     </table>
 
-    <a class="btn-floating btn-large waves-effect waves-light blue" href="{{ path('job_new') }}"><i class="material-icons">add</i></a>
+    <a class="btn btn-danger btn-large " href="{{ path('job_new') }}">Ajout d'une candidature</a>
+    </div>
 {% endblock %}

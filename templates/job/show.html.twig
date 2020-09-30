@@ -3,9 +3,10 @@
 {% block title %}Job{% endblock %}
 
 {% block body %}
-    <h1>Détail de la candidature</h1>
-
-    <table class="table">
+    <h1  class="mt-4 ml-2">Détail de la candidature</h1>
+    
+    <div class="container">
+    <table class="table mt-5">
         <tbody>
             <tr>
                 <th>Nom du poste</th>
@@ -28,12 +29,15 @@
                 <th>Lien de l'annonce</th>
                 <td><a href="{{ job.url }}">{{ job.url }}</a></td>
             </tr>
+             <tr>
+                <th>Etat de la candidature</th>
+                <td>{{ job.feedback }}</td>
+            </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('job_index') }}">Retour à la liste des candidatures</a>
-
-    <a href="{{ path('job_edit', {'id': job.id}) }}">Modifier</a>
+    <a class="btn btn-primary" href="{{ path('job_edit', {'id': job.id}) }}">Modifier</a>
 
     {{ include('job/_delete_form.html.twig') }}
+    <a href="{{ path('job_index') }}">Retour à la liste des candidatures</a>
+    </div>
 {% endblock %}

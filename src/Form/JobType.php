@@ -7,7 +7,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\ChoiceList\ChoiceList;
 
 class JobType extends AbstractType
 {
@@ -18,8 +17,13 @@ class JobType extends AbstractType
             ->add('companytitle')
             ->add('contact')
             ->add('url')
-            ->add('feedback')
-        ;
+            ->add('feedback', ChoiceType::class, [
+                'choices' => [
+                        'Candidature refusée' => 'Refuser',
+                        'Candidature envoyée' => 'En cours',
+                        'Candidature acceptée' => 'Accepter',
+                    ],
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
