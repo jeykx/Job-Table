@@ -6,9 +6,8 @@
     <h1 class="mt-4 ml-2">Modifier les informations</h1>
     <div class="container mt-5">
 
-    {{ include('job/_form.html.twig', {'button_label': 'Modifier'}) }}
-     {{ include('job/_delete_form.html.twig') }}
+    {{ include('job/_form.html.twig', {'button_label': 'Modifier la candidature'}) }}
 
-    <a href="{{ path('job_index') }}">back to list</a>
+    <a href="{{ path('job_index') }}">Retour à la liste des candidatures</a>
     </div>
 {% endblock %}

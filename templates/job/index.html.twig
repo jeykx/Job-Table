@@ -21,8 +21,9 @@
                 <td>{{ job.companytitle }}</td>
                 <td>{{ job.dateapplication ? job.dateapplication|date('d/m/Y',"Europe/Paris") : '' }}</td>
                 <td>
-                    <a class="btn btn-danger" href="{{ path('job_show', {'id': job.id}) }}">detail</a>
-                    <a class="btn btn-primary" href="{{ path('job_edit', {'id': job.id}) }}">modifier</a>
+                    <a class="btn btn-info" href="{{ path('job_show', {'id': job.id}) }}"> En savoir plus</a>
+                    <a class="btn btn-success" href="{{ path('job_edit', {'id': job.id}) }}"> Modifier</a>
+                    <button class="btn"> {{ include('job/_delete_form.html.twig',{'id': job.id}) }} </button>
                 </td>
             </tr>
         {% else %}
@@ -35,4 +36,5 @@
 
     <a class="btn btn-danger btn-large " href="{{ path('job_new') }}">Ajout d'une candidature</a>
     </div>
+     {{ knp_pagination_render(jobs) }}
 {% endblock %}

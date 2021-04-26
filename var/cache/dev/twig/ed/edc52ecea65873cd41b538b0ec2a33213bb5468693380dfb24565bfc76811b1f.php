@@ -90,17 +90,13 @@ class __TwigTemplate_cb8df8b5ac805e9fe626275f9487fafe7b3b3aa427f243a211463090dba
 
     ";
         // line 9
-        echo twig_include($this->env, $context, "job/_form.html.twig", ["button_label" => "Modifier"]);
-        echo "
-     ";
-        // line 10
-        echo twig_include($this->env, $context, "job/_delete_form.html.twig");
+        echo twig_include($this->env, $context, "job/_form.html.twig", ["button_label" => "Modifier la candidature"]);
         echo "
 
     <a href=\"";
-        // line 12
+        // line 11
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("job_index");
-        echo "\">back to list</a>
+        echo "\">Retour à la liste des candidatures</a>
     </div>
 ";
         
@@ -123,7 +119,7 @@ class __TwigTemplate_cb8df8b5ac805e9fe626275f9487fafe7b3b3aa427f243a211463090dba
 
     public function getDebugInfo()
     {
-        return array (  102 => 12,  97 => 10,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  98 => 11,  93 => 9,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -136,10 +132,9 @@ class __TwigTemplate_cb8df8b5ac805e9fe626275f9487fafe7b3b3aa427f243a211463090dba
     <h1 class=\"mt-4 ml-2\">Modifier les informations</h1>
     <div class=\"container mt-5\">
 
-    {{ include('job/_form.html.twig', {'button_label': 'Modifier'}) }}
-     {{ include('job/_delete_form.html.twig') }}
+    {{ include('job/_form.html.twig', {'button_label': 'Modifier la candidature'}) }}
 
-    <a href=\"{{ path('job_index') }}\">back to list</a>
+    <a href=\"{{ path('job_index') }}\">Retour à la liste des candidatures</a>
     </div>
 {% endblock %}
 ", "job/edit.html.twig", "C:\\wamp\\www\\JobTable\\templates\\job\\edit.html.twig");

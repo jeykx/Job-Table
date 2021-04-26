@@ -102,6 +102,19 @@ class __TwigTemplate_251e780ca8014e7c6661f287e113ba1e130bb743fae6cfe14dcc75aa347
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["jobs"]) || array_key_exists("jobs", $context) ? $context["jobs"] : (function () { throw new RuntimeError('Variable "jobs" does not exist.', 18, $this->source); })()));
         $context['_iterated'] = false;
+        $context['loop'] = [
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        ];
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
         foreach ($context['_seq'] as $context["_key"] => $context["job"]) {
             // line 19
             echo "            <tr>
@@ -118,21 +131,33 @@ class __TwigTemplate_251e780ca8014e7c6661f287e113ba1e130bb743fae6cfe14dcc75aa347
             ((twig_get_attribute($this->env, $this->source, $context["job"], "dateapplication", [], "any", false, false, false, 22)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["job"], "dateapplication", [], "any", false, false, false, 22), "d/m/Y", "Europe/Paris"), "html", null, true))) : (print ("")));
             echo "</td>
                 <td>
-                    <a class=\"btn btn-danger\" href=\"";
+                    <a class=\"btn btn-info\" href=\"";
             // line 24
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("job_show", ["id" => twig_get_attribute($this->env, $this->source, $context["job"], "id", [], "any", false, false, false, 24)]), "html", null, true);
-            echo "\">detail</a>
-                    <a class=\"btn btn-primary\" href=\"";
+            echo "\"> En savoir plus</a>
+                    <a class=\"btn btn-success\" href=\"";
             // line 25
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("job_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["job"], "id", [], "any", false, false, false, 25)]), "html", null, true);
-            echo "\">modifier</a>
+            echo "\"> Modifier</a>
+                    <button class=\"btn\"> ";
+            // line 26
+            echo twig_include($this->env, $context, "job/_delete_form.html.twig", ["id" => twig_get_attribute($this->env, $this->source, $context["job"], "id", [], "any", false, false, false, 26)]);
+            echo " </button>
                 </td>
             </tr>
         ";
             $context['_iterated'] = true;
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
         }
         if (!$context['_iterated']) {
-            // line 29
+            // line 30
             echo "            <tr>
                 <td colspan=\"5\">no records found</td>
             </tr>
@@ -141,12 +166,12 @@ class __TwigTemplate_251e780ca8014e7c6661f287e113ba1e130bb743fae6cfe14dcc75aa347
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['job'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
+        // line 34
         echo "        </tbody>
     </table>
 
     <a class=\"btn btn-danger btn-large \" href=\"";
-        // line 36
+        // line 37
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("job_new");
         echo "\">Ajout d'une candidature</a>
     </div>
@@ -171,7 +196,7 @@ class __TwigTemplate_251e780ca8014e7c6661f287e113ba1e130bb743fae6cfe14dcc75aa347
 
     public function getDebugInfo()
     {
-        return array (  150 => 36,  145 => 33,  136 => 29,  127 => 25,  123 => 24,  118 => 22,  114 => 21,  110 => 20,  107 => 19,  102 => 18,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  175 => 37,  170 => 34,  161 => 30,  144 => 26,  140 => 25,  136 => 24,  131 => 22,  127 => 21,  123 => 20,  120 => 19,  102 => 18,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -199,8 +224,9 @@ class __TwigTemplate_251e780ca8014e7c6661f287e113ba1e130bb743fae6cfe14dcc75aa347
                 <td>{{ job.companytitle }}</td>
                 <td>{{ job.dateapplication ? job.dateapplication|date('d/m/Y',\"Europe/Paris\") : '' }}</td>
                 <td>
-                    <a class=\"btn btn-danger\" href=\"{{ path('job_show', {'id': job.id}) }}\">detail</a>
-                    <a class=\"btn btn-primary\" href=\"{{ path('job_edit', {'id': job.id}) }}\">modifier</a>
+                    <a class=\"btn btn-info\" href=\"{{ path('job_show', {'id': job.id}) }}\"> En savoir plus</a>
+                    <a class=\"btn btn-success\" href=\"{{ path('job_edit', {'id': job.id}) }}\"> Modifier</a>
+                    <button class=\"btn\"> {{ include('job/_delete_form.html.twig',{'id': job.id}) }} </button>
                 </td>
             </tr>
         {% else %}

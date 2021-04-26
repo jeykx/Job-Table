@@ -60,14 +60,36 @@ class __TwigTemplate_ab472a8981321e248cce5e00867e8e27314006c7a23087bf78eb3faf4c4
         // line 9
         echo "    </head>
     <body>
-        ";
-        // line 11
-        $this->displayBlock('body', $context, $blocks);
+
+    ";
         // line 12
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 12, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 12));
+        foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
+            // line 13
+            echo "            <div class=\"alert alert-danger alert-dismissible fade show\">
+                ";
+            // line 14
+            echo twig_escape_filter($this->env, $context["message"], "html", null, true);
+            echo "
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+            </div>
+    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 20
+        echo "        ";
+        $this->displayBlock('body', $context, $blocks);
+        // line 21
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 13
+        // line 22
         echo "         <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\"></script>
+         <script src=\"public/js/alert.js\"></script>
     </body>
 </html>
 ";
@@ -116,7 +138,7 @@ class __TwigTemplate_ab472a8981321e248cce5e00867e8e27314006c7a23087bf78eb3faf4c4
 
     }
 
-    // line 11
+    // line 20
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -134,7 +156,7 @@ class __TwigTemplate_ab472a8981321e248cce5e00867e8e27314006c7a23087bf78eb3faf4c4
 
     }
 
-    // line 12
+    // line 21
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -157,9 +179,14 @@ class __TwigTemplate_ab472a8981321e248cce5e00867e8e27314006c7a23087bf78eb3faf4c4
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  138 => 12,  120 => 11,  102 => 8,  83 => 5,  70 => 13,  67 => 12,  65 => 11,  61 => 9,  59 => 8,  53 => 5,  47 => 1,);
+        return array (  160 => 21,  142 => 20,  124 => 8,  105 => 5,  91 => 22,  88 => 21,  85 => 20,  73 => 14,  70 => 13,  66 => 12,  61 => 9,  59 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -174,9 +201,19 @@ class __TwigTemplate_ab472a8981321e248cce5e00867e8e27314006c7a23087bf78eb3faf4c4
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+
+    {% for message in app.flashes('success') %}
+            <div class=\"alert alert-danger alert-dismissible fade show\">
+                {{ message }}
+            <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+    <span aria-hidden=\"true\">&times;</span>
+  </button>
+            </div>
+    {% endfor %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
          <script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\"></script>
+         <script src=\"public/js/alert.js\"></script>
     </body>
 </html>
 ", "base.html.twig", "C:\\wamp\\www\\JobTable\\templates\\base.html.twig");

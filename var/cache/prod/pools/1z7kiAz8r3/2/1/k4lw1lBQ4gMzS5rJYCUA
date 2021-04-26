@@ -1,0 +1,140 @@
+<?php //%255BApp%255CEntity%255CJob%2524CLASSMETADATA%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\ClassMetadata'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\ClassMetadata')),
+        clone ($p['Doctrine\\ORM\\Id\\IdentityGenerator'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Id\\IdentityGenerator')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+                'App\\Entity\\Job',
+            ],
+            'namespace' => [
+                'App\\Entity',
+            ],
+            'rootEntityName' => [
+                'App\\Entity\\Job',
+            ],
+            'customRepositoryClassName' => [
+                'App\\Repository\\JobRepository',
+            ],
+            'identifier' => [
+                [
+                    'id',
+                ],
+            ],
+            'generatorType' => [
+                4,
+            ],
+            'fieldMappings' => [
+                [
+                    'id' => [
+                        'fieldName' => 'id',
+                        'type' => 'integer',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'id' => true,
+                        'columnName' => 'id',
+                    ],
+                    'jobtitle' => [
+                        'fieldName' => 'jobtitle',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'jobtitle',
+                    ],
+                    'companytitle' => [
+                        'fieldName' => 'companytitle',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => true,
+                        'precision' => 0,
+                        'columnName' => 'companytitle',
+                    ],
+                    'dateapplication' => [
+                        'fieldName' => 'dateapplication',
+                        'type' => 'date',
+                        'scale' => 0,
+                        'length' => null,
+                        'unique' => false,
+                        'nullable' => false,
+                        'precision' => 0,
+                        'columnName' => 'dateapplication',
+                    ],
+                    'contact' => [
+                        'fieldName' => 'contact',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => true,
+                        'precision' => 0,
+                        'columnName' => 'contact',
+                    ],
+                    'url' => [
+                        'fieldName' => 'url',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => true,
+                        'precision' => 0,
+                        'columnName' => 'url',
+                    ],
+                    'feedback' => [
+                        'fieldName' => 'feedback',
+                        'type' => 'string',
+                        'scale' => 0,
+                        'length' => 255,
+                        'unique' => false,
+                        'nullable' => true,
+                        'precision' => 0,
+                        'columnName' => 'feedback',
+                    ],
+                ],
+            ],
+            'fieldNames' => [
+                [
+                    'id' => 'id',
+                    'jobtitle' => 'jobtitle',
+                    'companytitle' => 'companytitle',
+                    'dateapplication' => 'dateapplication',
+                    'contact' => 'contact',
+                    'url' => 'url',
+                    'feedback' => 'feedback',
+                ],
+            ],
+            'columnNames' => [
+                [
+                    'id' => 'id',
+                    'jobtitle' => 'jobtitle',
+                    'companytitle' => 'companytitle',
+                    'dateapplication' => 'dateapplication',
+                    'contact' => 'contact',
+                    'url' => 'url',
+                    'feedback' => 'feedback',
+                ],
+            ],
+            'table' => [
+                [
+                    'name' => 'job',
+                ],
+            ],
+            'idGenerator' => [
+                $o[1],
+            ],
+        ],
+    ],
+    $o[0],
+    []
+); }];

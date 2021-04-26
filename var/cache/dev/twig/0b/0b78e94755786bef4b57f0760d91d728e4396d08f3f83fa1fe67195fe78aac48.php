@@ -137,17 +137,8 @@ class __TwigTemplate_3778b8341b892276858cd13472bde69a3a2b7d7e98bd52fb307ee76b4ae
             </tr>
         </tbody>
     </table>
-    <a class=\"btn btn-primary\" href=\"";
-        // line 38
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("job_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["job"]) || array_key_exists("job", $context) ? $context["job"] : (function () { throw new RuntimeError('Variable "job" does not exist.', 38, $this->source); })()), "id", [], "any", false, false, false, 38)]), "html", null, true);
-        echo "\">Modifier</a>
-
-    ";
-        // line 40
-        echo twig_include($this->env, $context, "job/_delete_form.html.twig");
-        echo "
     <a href=\"";
-        // line 41
+        // line 38
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("job_index");
         echo "\">Retour à la liste des candidatures</a>
     </div>
@@ -172,7 +163,7 @@ class __TwigTemplate_3778b8341b892276858cd13472bde69a3a2b7d7e98bd52fb307ee76b4ae
 
     public function getDebugInfo()
     {
-        return array (  151 => 41,  147 => 40,  142 => 38,  135 => 34,  126 => 30,  119 => 26,  111 => 21,  104 => 17,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  142 => 38,  135 => 34,  126 => 30,  119 => 26,  111 => 21,  104 => 17,  97 => 13,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -214,9 +205,6 @@ class __TwigTemplate_3778b8341b892276858cd13472bde69a3a2b7d7e98bd52fb307ee76b4ae
             </tr>
         </tbody>
     </table>
-    <a class=\"btn btn-primary\" href=\"{{ path('job_edit', {'id': job.id}) }}\">Modifier</a>
-
-    {{ include('job/_delete_form.html.twig') }}
     <a href=\"{{ path('job_index') }}\">Retour à la liste des candidatures</a>
     </div>
 {% endblock %}
