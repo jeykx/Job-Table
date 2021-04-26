@@ -1,3 +1,3 @@
 # Job-Table
 
-Outil de gestino de candidature sous Symfony 5
+Outil de gestion de candidature sous Symfony 5
